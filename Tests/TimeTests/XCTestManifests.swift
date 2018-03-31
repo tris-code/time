@@ -2,6 +2,8 @@ import XCTest
 
 extension TimeTests {
     static let __allTests = [
+        ("testDescription", testDescription),
+        ("testDouble", testDouble),
         ("testDuration", testDuration),
         ("testInterval", testInterval),
         ("testNow", testNow),
