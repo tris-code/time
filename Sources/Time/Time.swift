@@ -14,14 +14,29 @@ public struct Time {
     public var seconds: Int
     public var nanoseconds: Int
 
+    public init(seconds: Int, nanoseconds: Int) {
+        self.seconds = seconds
+        self.nanoseconds = nanoseconds
+    }
+
     public struct Duration {
         public var seconds: Int
         public var nanoseconds: Int
+
+        public init(seconds: Int, nanoseconds: Int) {
+            self.seconds = seconds
+            self.nanoseconds = nanoseconds
+        }
     }
 
     public struct Interval {
         public let location: Time
         public let duration: Duration
+
+        public init(location: Time, duration: Duration) {
+            self.location = location
+            self.duration = duration
+        }
     }
 }
 
