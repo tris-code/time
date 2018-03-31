@@ -39,4 +39,18 @@ final class TimeTests: TestCase {
         let interval2 = location2.interval(location1)
         assertEqual(interval2, interval)
     }
+
+    func testDescription() {
+        let seconds = Time(seconds: 123, nanoseconds: 123_000_000)
+        assertEqual(seconds.description, "123.123 sec")
+
+        let milliseconds = Time(seconds: 0, nanoseconds: 123_000_000)
+        assertEqual(milliseconds.description, "123 ms")
+
+        let microseconds = Time(seconds: 0, nanoseconds: 123_000)
+        assertEqual(microseconds.description, "123 μs")
+
+        let nanoseconds = Time(seconds: 0, nanoseconds: 123)
+        assertEqual(nanoseconds.description, "123 ns")
+    }
 }
