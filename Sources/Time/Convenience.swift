@@ -59,6 +59,7 @@ extension IntegerLiteralType {
 // MARK: Double
 
 extension TimeProtocol {
+    @inlinable
     public init(_ double: Double) {
         let seconds = Int(double)
         let ms = Int((double - Double(Int(double))) * 1_000) * 1_000_000
@@ -68,12 +69,14 @@ extension TimeProtocol {
 }
 
 extension Double {
+    @inlinable
     public init(_ interval: Time.Interval) {
         self.init(interval.duration)
     }
 
-    public init(_ duration: Time.Duration) {
-        self = Double(duration.seconds) +
-            Double(duration.nanoseconds / 1_000_000) / 1_000
+    @inlinable
+    public init<T: TimeProtocol>(_ time: T) {
+        self = Double(time.seconds) +
+            Double(time.nanoseconds / 1_000_000) / 1_000
     }
 }
