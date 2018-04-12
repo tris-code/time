@@ -14,6 +14,7 @@ import Test
 final class TimeTests: TestCase {
     func testNow() {
         assertEqual(Time(), .now)
+        assertTrue(Time() > Time(seconds: 1523558109, nanoseconds: 0))
     }
 
     func testDuration() {
