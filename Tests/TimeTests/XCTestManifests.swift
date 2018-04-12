@@ -5,6 +5,7 @@ extension TimeTests {
         ("testDescription", testDescription),
         ("testDouble", testDouble),
         ("testDuration", testDuration),
+        ("testFromString", testFromString),
         ("testInterval", testInterval),
         ("testNow", testNow),
     ]
