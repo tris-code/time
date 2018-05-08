@@ -1,4 +1,3 @@
-// swift-tools-version:4.2
 /******************************************************************************
  *                                                                            *
  * Tris Foundation disclaims copyright to this source code.                   *
@@ -10,32 +9,9 @@
  *                                                                            *
  ******************************************************************************/
 
-import PackageDescription
+// doesn't work
+// #define __USE_XOPEN
+#include <time.h>
 
-let package = Package(
-    name: "Time",
-    products: [
-        .library(name: "Time", targets: ["Time"]),
-    ],
-    dependencies: [
-        .package(
-            url: "https://github.com/tris-foundation/platform.git",
-            .branch("master")),
-        .package(
-            url: "https://github.com/tris-foundation/test.git",
-            .branch("master"))
-    ],
-    targets: [
-        .target(
-            name: "Time",
-            dependencies: ["Platform"]),
-        .testTarget(
-            name: "TimeTests",
-            dependencies: ["Test", "Time"])
-    ]
-)
-
-#if os(Linux)
-package.targets.append(.target(name: "CTime"))
-package.targets[0].dependencies.append("CTime")
-#endif
+extern char *strptime (const char *__restrict __s,
+                       const char *__restrict __fmt, struct tm *__tp);
