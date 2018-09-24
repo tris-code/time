@@ -75,8 +75,8 @@ extension TimeProtocol {
     @inlinable
     public init(_ double: Double) {
         let seconds = Int(double)
-        let ms = Int((double - Double(Int(double))) * 1_000) * 1_000_000
-        let nanoseconds = ms * 1_000_000
+        let milliseconds = Int(double * 1_000 - Double(seconds) * 1_000)
+        let nanoseconds = milliseconds * 1_000_000
         self.init(seconds: seconds, nanoseconds: nanoseconds)
     }
 }
