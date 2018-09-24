@@ -14,7 +14,7 @@ import Test
 
 final class TimeTests: TestCase {
     func testNow() {
-        assertEqual(Time(), .now)
+        assertEqual(Time().seconds, Time.now.seconds)
         assertTrue(Time() > Time(seconds: 1523558109, nanoseconds: 0))
     }
 
@@ -68,5 +68,15 @@ final class TimeTests: TestCase {
         let time = Time("12/04/18 18:26:32", format: "%d/%m/%y %T")
         assertEqual(time?.seconds, 1523557592)
         assertEqual(time?.nanoseconds, 0)
+    }
+
+    func testEquatable() {
+        assertEqual(
+            Time(seconds: 1, nanoseconds: 2),
+            Time(seconds: 1, nanoseconds: 2))
+
+        assertNotEqual(
+            Time(seconds: 1, nanoseconds: 2),
+            Time(seconds: 1, nanoseconds: 3))
     }
 }

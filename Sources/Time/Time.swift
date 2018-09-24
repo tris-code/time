@@ -97,13 +97,15 @@ extension Time {
 
 extension Time: Equatable {
     public static func == (lhs: Time, rhs: Time) -> Bool {
-        return lhs.seconds == rhs.seconds && lhs.seconds == rhs.seconds
+        return lhs.seconds == rhs.seconds
+            && lhs.nanoseconds == rhs.nanoseconds
     }
 }
 
 extension Time.Duration: Equatable {
     public static func == (lhs: Time.Duration, rhs: Time.Duration) -> Bool {
-        return lhs.seconds == rhs.seconds && lhs.seconds == rhs.seconds
+        return lhs.seconds == rhs.seconds
+            && lhs.nanoseconds == rhs.nanoseconds
     }
 }
 
