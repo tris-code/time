@@ -3,5 +3,5 @@
 ## Package.swift
 
 ```swift
-.package(url: "https://github.com/tris-foundation/time.git", .branch("master"))
+.package(url: "https://github.com/tris-code/time.git", .branch("master"))
 ```
