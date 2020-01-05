@@ -7,12 +7,8 @@ let package = Package(
         .library(name: "Time", targets: ["Time"]),
     ],
     dependencies: [
-        .package(
-            url: "https://github.com/tris-code/platform.git",
-            .branch("master")),
-        .package(
-            url: "https://github.com/tris-code/test.git",
-            .branch("master"))
+        .package(path: "../Platform"),
+        .package(path: "../Test")
     ],
     targets: [
         .target(
